@@ -4,13 +4,27 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    listStyleType: {
+      none: 'none',
+      disc: 'disc',
+      decimal: 'decimal',
+      square: 'square',
+      roman: 'upper-roman',
+    },
     extend: {
-
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
+      },
       backgroundImage: theme => ({
         'ws': "url('./assets/Workspace_2.jpg')",
         'sm-ws': "url('./assets/Workspace_1.jpg')",
-      })
-      ,
+        'about-bg-1': "url('./bg.png')",
+        'about-bg-2': "url('./assets/about/bg.jpg')",
+      }),
+      
       colors: {
         'primary': {
           light: '#7bdcb5',

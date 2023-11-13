@@ -9,15 +9,17 @@ import ErrorPage from './error-page';
 import About from './about';
 import Root from './routes/root';
 import Home from './home';
+import Services from './services';
+import Contact from './contact';
 
 
 
 const router = createBrowserRouter([
   {
     path: "/home",
-    element: <Root/>,
+    element: <Root />,
     errorElement: <ErrorPage />,
-    children:[
+    children: [
       // {
       //   path: "/",
       //   element: <Home />,
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
       //   path: "/about-us",
       //   element: <About />,
       // },
-     
+
     ]
   },
   {
@@ -37,15 +39,23 @@ const router = createBrowserRouter([
     path: "/about-us",
     element: <About />,
   },
- 
- 
+
+  {
+    path: "/our-services",
+    element: <Services />,
+  },
+  {
+    path: "/contact-us",
+    element: <Contact />,
+  },
+
 ]);
 function App() {
-  
+
   return (
     <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
   );
 }
 

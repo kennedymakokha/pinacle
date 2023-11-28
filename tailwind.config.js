@@ -16,15 +16,47 @@ module.exports = {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+
+        slide: {
+          '0%': {
+            transform: 'translateX(0px)',
+          },
+
+          '50%': {
+            transform: 'translateX(calc(200px - 100%))',
+          },
+
+          '100%': {
+            transform: 'translateX(0px)',
+          },
+        },
+        slide_y: {
+          '0%': {
+            transform: 'translateY(0px)',
+          },
+
+          '50%': {
+            transform: 'translateY(calc(100px - 100%))',
+          },
+
+          '100%': {
+            transform: 'translateY(px)',
+          },
         }
       },
+      animation: {
+        slide: 'slide 2s ease-out ',
+        slide_y: 'slide_y 4s ease ',
+      },
+
       backgroundImage: theme => ({
         'ws': "url('./assets/Workspace_2.jpg')",
         'sm-ws': "url('./assets/Workspace_1.jpg')",
         'about-bg-1': "url('./bg.png')",
         'about-bg-2': "url('./assets/about/bg.jpg')",
       }),
-      
+
       colors: {
         'primary': {
           light: '#7bdcb5',

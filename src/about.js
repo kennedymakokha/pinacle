@@ -9,8 +9,16 @@ import About_6 from './assets/about/about-6.png'
 import About_7 from './assets/about/about-7.png'
 import why_us from './assets/about/why.jpg'
 import mission from './assets/about/mission.jpg'
+import insta from './assets/social/instagaram.jpg'
+import skype from './assets/social/skype.png'
+import shareicon from './assets/social/share.png'
+import twitter from './assets/social/twitter.png'
+import fb from './assets/social/fb.png'
 import People from './assets/about/people.jpg'
 import BreadCrump from './components/breadCrump';
+import { motion } from "framer-motion"
+import TitleComponent, { ListItem, Title_center } from './components/displaycomponts';
+
 // const BreadCrump = lazy(() => import('./components/breadCrump'));
 
 const Groupelement = props => {
@@ -38,52 +46,77 @@ let H = [
     "Fast & Quality",
     "Experienced"
 ]
-const socialacc= [
+const socialacc = [
     {
-        name:"instagram",
-        link:"",
-        icom:""
+        name: "instagram",
+        link: "",
+        icom: insta
     },
     {
-        name:"facebook",
-        link:"",
-        icom:""
+        name: "facebook",
+        link: "",
+        icom: fb
     },
     {
-        name:"share",
-        link:"",
-        icom:""
+        name: "share",
+        link: "",
+        icom: shareicon
     },
     {
-        name:"twiiter",
-        link:"",
-        icom:""
+        name: "twiiter",
+        link: "",
+        icom: twitter
     },
     {
-        name:"skype",
-        link:"",
-        icom:""
+        name: "skype",
+        link: "",
+        icom: skype
     },
 
 ]
+
+const TeamArr = [
+    {
+        name: "Kennedy Makokha",
+        link: "",
+        job: "C.E.O",
+        icom: insta,
+        share: false
+    },
+    {
+        name: "Margaret Wambui",
+        link: "",
+        job: "C.T.O",
+        icom: fb,
+        share: false
+    },
+    {
+        name: "James Machacia",
+        link: "",
+        job: "Human Resource",
+        icom: shareicon,
+        share: false
+    },
+
+
+]
+
 function About() {
 
     const [attribute, setAttribute] = useState(`${H[0]} & ${H[2]}`)
     const [share, setshare] = useState(false)
+
     return (
         <Layout>
-            <div className='h-auto w-full bg-primary '>
-                <BreadCrump name="About Us" title="about-us" image={AboutBg} />
-            </div>
-            <div className='w-full bg-about-bg-1 bg-no-repeat flex flex-col sm:flex-row  sm:h-[800px] sm:px-60 px-2 flex my-2 '>
+
+            <BreadCrump name="About Us" title="about-us" image={AboutBg} />
+
+            <div className='w-full bg-about-bg-1 bg-no-repeat flex flex-col sm:flex-row  sm:h-[800px]  overflow-x-hidden sm:px-60 px-2 flex my-2 '>
                 <div className='sm:w-[50%] w-full flex   h-full  flex sm:gap-y-3  sm:p-10 p-1  flex-col'>
-                    <div className='flex flex-col gap-y-3'>
-                        <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold underline'>We are</h2>
-                        <h2 className='capitalise text-black sm:text-5xl text-2xl font-semibold '>Leaders in HR Solution</h2>
-                    </div>
-                    <div className='flex w-full h-20  '>
+                    <TitleComponent title="We are" megaTitle="Leaders in HR Solution" />
+                    <div className='flex w-full h-20 sm:gap-x-10  gap-x-1'>
                         <div className='flex w-[10%] h-full items-center justify-center  '>
-                            <img src={flag} alt='' className='rounded-full sm:h-full h-[28px] w-[78px] object-cover' />
+                            <img src={flag} alt='' className='rounded-full sm:h-[70px] h-[28px] w-[70px] object-cover' />
                         </div>
                         <div className='flex justify-center  flex-col text-slate-500 w-[90%] h-full sm:text-3xl  text-[14px] font-bold '>
                             <h2 >Since 1998,</h2>
@@ -126,11 +159,8 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div className='flex sm:h-[900px] w-full bg-slate-100 p-10 flex-col sm:px-60 px-2 '>
-                <div className='flex flex-col gap-y-3 items-center justify-center h-[10%] w-full mx-2'>
-                    <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold underline'>Our Business</h2>
-                    <h2 className='capitalise text-black sm:text-5xl text-2xl font-semibold '>Stand Out From The Rest</h2>
-                </div>
+            <div className='flex sm:h-[900px] w-full bg-slate-100 p-10 flex-col sm:px-60 px-2  overflow-x-hidden'>
+                <TitleComponent center={true} title="Our Business" megaTitle="Stand Out From The Rest" />
                 <div className='w-full flex-col  sm:flex-row  flex h-[90%] '>
                     <div className='h-full sm:w-1/3 w-full '>
                         <div className='h-1/2   sm:p-4 p-1'>
@@ -138,7 +168,8 @@ function About() {
                         </div>
                         <div className='h-1/2 sm:p-4 p-1'>
                             <div className='h-full w-full rounded-lg  py-10  shadow-lg bg-white px-10 flex justify-center items-center flex-col  '>
-                                <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold  text-center '>Our Mission</h2>
+
+                                <TitleComponent center={true} underline={true} title="Our Mission" />
                                 <p className=' sm:text-[24px] text-justify'>Equal blame belongs to those who fail in their duty through weakness of will which the same as saying.</p>
 
                             </div>
@@ -147,14 +178,9 @@ function About() {
                     <div className='h-full sm:w-1/3 w-full '>
                         <div className='h-full sm:p-4 p-1'>
                             <div className='h-full w-full rounded-lg shadow-lg bg-white px-10  py-10 '>
-                                <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold  text-center '>Our core values</h2>
+                                <TitleComponent center={true} underline={true} title="Our core values" />
                                 <p className=' sm:text-[24px] text-justify'>Equal blame belongs to those who fail in their duty through weakness of will which the same as saying.</p>
-                                <ul className='list-[circle] list-primary leading-10 sm:text-[24px] px-6'>
-                                    {corevalues.map((value, i) => (
-                                        <li key={i}>{value}</li>
-                                    ))}
-
-                                </ul>
+                                <ListItem listitems={corevalues} />
                                 <div className='flex items-center shadow-lg sm:border relative sm:-bottom-40 z-10 justify-center bg-primary hover:bg-secondary font-bold sm:text-white text-black w-40 px-3 py-5 rounded-tr-[20px]  rounded-bl-[20px]'>
                                     Read More
                                 </div>
@@ -164,7 +190,7 @@ function About() {
                     <div className='h-full sm:w-1/3 w-full '>
                         <div className='h-1/2 sm:p-4 p-1'>
                             <div className='h-full w-full rounded-lg shadow-lg bg-white px-10 flex justify-center  py-10  items-center flex-col '>
-                                <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold  text-center '>Our Vision</h2>
+                                <TitleComponent center={true} underline={true} title="Our Vision" />
                                 <p className=' sm:text-[24px] text-justify'>Equal blame belongs to those who fail in their duty through weakness of will which the same as saying.</p>
 
                             </div>
@@ -177,7 +203,7 @@ function About() {
 
             </div>
 
-            <div className='flex sm:h-[900px]  w-screen  bg-slate-600  bg-about-bg-2 bg-no-repeat  flex-col sm:px-60 px-2 '>
+            <div className='flex sm:h-[900px]  w-full   bg-slate-600  bg-about-bg-2 bg-no-repeat    flex-col sm:px-60 px-2 '>
                 <div className='w-full  h-3/4  flex  sm:my-40 my-10   '>
                     <div className='w-full  h-full border-primary border-2  shadow-2xl rounded-md'>
                         <div class=" w-full h-full relative z-0">
@@ -218,13 +244,10 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div className='flex sm:h-[900px]  w-screen    py-20   flex-col sm:px-60 px-2 '>
+            <div className='flex sm:h-[900px]   w-full    py-20   flex-col sm:px-60 px-2 '>
                 <div className='flex w-full h-[20%] '>
                     <div className='flex w-1/2 h-full '>
-                        <div className='flex flex-col gap-y-3  h-full w-full mx-2'>
-                            <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold underline'>Dedicated Team</h2>
-                            <h2 className='capitalise text-black sm:text-5xl text-2xl font-semibold '>Professional Individuals</h2>
-                        </div>
+                        <TitleComponent title="Dedicated Team" megaTitle="Professional Individuals" />
                     </div>
                     <div className='flex w-1/2 h-full '>
                         <p className='sm:text-[24px]'>
@@ -233,32 +256,57 @@ function About() {
                     </div>
 
                 </div>
-                <div className='flex w-full h-[80%] bg-green-100 '>
-                    <div className='h-full w-1/3 p-5 '>
-                        <div className='w-full h-full  flex    '>
-                            <div className='w-full  h-full border-primary border-2  bg-primary-dark shadow-2xl rounded-md'>
-                                <div class=" w-full h-full relative z-0">
-                                    <img src={mission} alt='' className='h-full w-full rounded-lg shadow-lg  object-cover' />
+                <div className='flex w-full h-[80%]  sm:flex-row flex-col  '>
+                    {TeamArr.map((team, i) => (
+                        <div className='h-full sm:w-1/3 w-full p-5 '>
+                            <div className='w-full h-full  flex    '>
+                                <div className='w-full  h-full border-primary border-2  bg-primary-dark shadow-2xl rounded-md'>
+                                    <div class=" w-full group h-full relative z-0">
+                                        <img src={mission} alt='' className='h-full w-full hover:scale-10 transition-all duration-500 cursor-pointer  rounded-lg shadow-lg  object-cover' />
+                                        <div class="w-full absolute top-0 h-full flex  justify-center items-center backdrop-brightness-50">
+                                        </div>
+                                        <div class="absolute   bottom-20 shadow-3xl left-1  group-hover:animate-slide  w-full flex  z-10">
+                                            <div className='flex hover:hidden flex-col gap-y-3'>
+                                                <h2 className='capitalise text-primary  sm:text-3xl text-xl font-bold underline'>{team.job}</h2>
+                                                <h2 className='capitalise text-white sm:text-2xl text-xl font-semibold '>{team.name}</h2>
+                                            </div>
 
-                                    {share ? <div onMouseEnter={() => setshare((prevState) => (!share))}
-                                        onMouseLeave={() => setshare((prevState) => (!share))}
-                                        class="absolute  rounded-b-full top-0 shadow-lg right-0 flex-col bg-primary h-1/2 w-20 flex  z-10">
-                                             <div className='flex h-[20%] w-full bg-blue-100'></div>
-                                            <div className='flex h-[20%] w-full bg-red-100'></div>
+                                        </div>
+                                        <div
+                                            // onMouseEnter={() => setshare(false)}
+                                            onMouseLeave={() => setshare(false)}
+                                            class="absolute  rounded-b-full   top-0 shadow-lg right-0 flex-col bg-primary   sm:w-20 w-10 flex  z-10">
+                                            {share ? socialacc.map((social, i) => (
+                                                <div className=' sm:h-full h-44 flex flex-col  '>
+                                                    <div className='flex h-[20%] my-2 w-full justify-center items-center'>
+                                                        <div className='w-16 h-16 rounded-full  flex justify-center items-center' >
+                                                            <img src={social.icom} className='h-full w-full object-fit rounded-full ' alt='' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            )) : <div className='h-44 flex flex-col  '
+                                                onMouseEnter={() => setshare(true)}
 
-                                    </div> :
+                                            >
+                                                <div className='flex w-full h-3/4 justify-center items-center  rotate-90'><h2>Share</h2></div>
+                                                <div className=' w-full flex justify-center items-center'>
+                                                    <div className='sm:w-16  w-8 sm:h-16 h-8 rounded-full  flex justify-center items-center' >
+                                                        <img src={shareicon} className='h-full w-full object-fit rounded-full flex items-center justify-center ' alt='' />
+                                                    </div>
+                                                </div>
+                                            </div>}
 
-                                        <div onMouseLeave={() => setshare((prevState) => (!share))}
-                                            onMouseEnter={() => setshare((prevState) => (!share))}
-                                            class="absolute  rounded-b-full top-0 shadow-lg right-0 bg-primary h-36 w-20 flex  z-10">
 
-                                        </div>}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    ))}
+
                 </div>
             </div>
+
             {/* <div className='w-full px-20 h-[1000px]  flex  mt-20   '>
                 <div className='w-3/4  h-2/4 border-primary border-2  bg-primary-dark shadow-2xl rounded-md'>
                     <div class=" w-full h-full relative z-0">

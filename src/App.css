@@ -28,10 +28,23 @@
   color: #61dafb;
 }
 
+.fade-in-container {
+  opacity: 0.0;
+  /* Set initial opacity as needed */
+  transition: opacity 1s ease-in-out;
+  /* Set transition duration and easing function */
+}
+
+.fade-in-container.hovered {
+  opacity: 1;
+  /* Opacity when hovered */
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

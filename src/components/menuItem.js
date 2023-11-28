@@ -1,19 +1,25 @@
 import { Link } from 'react-router-dom';
 import './styles.css'
 import React from 'react';
+import { classNames } from '../dist/commonFunctions';
 function NavItem(props) {
+    const { scrollPosition } = props
     return (
         <div className="group inline-block">
             <Link to={props?.data?.href}
-                className="
-                font-montserrat  hover:underline underline-offset-8  text-primary hover:text-primary-light leading-normal text-lg text-slate-gray
-                outline-none focus:outline-none px-3 py-1  rounded-sm flex items-center min-w-32"
+                className={classNames(
+
+                    scrollPosition < 10 && !props.transparent ? 'text-slate-100 hover:text-primary-light ' : 'text-primary hover:text-primary-light ',
+
+
+                    ' font-montserrat  hover:underline underline-offset-8  leading-normal text-2xl uppercase  text-slate-gray-none focus:outline-none px-3 py-1  rounded-sm flex items-center min-w-32',
+                )}
+
             >
                 <span className="pr-1 font-semibold flex-1">{props.title}</span>
                 {props.data.children && <span>
                     <svg
-                        className="fill-current h-4 w-4 transform group-hover:-rotate-180
-        transition duration-150 ease-in-out"
+                        className="fill-current h-4 w-4 transform group-hover:-rotate-180 transition duration-150 ease-in-out"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 20 20"
                     >

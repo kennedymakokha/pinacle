@@ -6,6 +6,7 @@ import { useScrollPosition } from "../hooks/scrollhook";
 import Logo from './logo_1.png'
 import './styles.css'
 import NavItem from "./menuItem";
+import { classNames } from "../dist/commonFunctions";
 const Navbar = (props) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const navLinks = [
@@ -31,9 +32,6 @@ const Navbar = (props) => {
         { href: "/contact-us", label: "Contact Us" },
     ];
 
-    function classNames(...classes) {
-        return classes.filter(Boolean).join(' ')
-    }
 
     const scrollPosition = useScrollPosition()
     return (
@@ -54,22 +52,11 @@ const Navbar = (props) => {
 
                     <ul className="flex-1 flex justify-end items-center gap-10 max-lg:hidden">
                         {navLinks.map((item) => (
-                            <NavItem key={item.label} title={item.label} data={item} />
-                            // <li key={item.label}>
-                            //     <a
-                            //         href={item.href}
-                            //         className="font-montserrat  hover:underline underline-offset-8 font-bold text-primary hover:text-primary-light leading-normal text-lg text-slate-gray"
-                            //     >
-                            //         {item.label}
-                            //     </a>
-                            // </li>
+                            <NavItem scrollPosition={scrollPosition} transparent={props.transparent} key={item.label} title={item.label} data={item} />
+
                         ))}
                     </ul>
-                    {/* <div className="flex gap-2 text-lg leading-normal font-medium font-montserrat max-lg:hidden wide:mr-24">
-                        <a href="/">Sign in</a>
-                        <span>/</span>
-                        <a href="/">Explore now</a>
-                    </div> */}
+
                     <div
                         className="hidden max-lg:block cursor-pointer"
                         onClick={() => {
